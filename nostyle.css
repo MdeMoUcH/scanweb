@@ -1,0 +1,19 @@
+body {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size:95%;
+	color: #555555;
+	padding:20px;
+	background-color: lightblue
+}
+
+a {
+	color:black;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+h1, h2, h3 {
+	font-size:100%;
+}
+
+
