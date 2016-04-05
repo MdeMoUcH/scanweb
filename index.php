@@ -11,6 +11,7 @@ $url_redirect = $urlbase.'index.php?web=';
 
 if(@$_GET['web'] != ''){
 	$s_url = $_GET['web'];
+	$s_url = str_replace('%3F','?',$s_url);
 	if(strpos($s_url,'http://') === false && strpos($s_url,'https://') === false){
 		$s_url = 'http://'.$s_url;
 	}
@@ -48,6 +49,16 @@ $s_web = preg_replace($a_exp,$a_sus,$s_web);
 
 //Añadimos nuestra propia hoja de estilos:
 $s_web = str_replace(array('</head>','</HEAD>'),'<link rel="stylesheet" href="'.$urlbase.'nostyle.css" media="screen" /></head>',$s_web);
+
+//Y nuestro propio menú:
+$body_pos = strpos($s_web,'<body');
+if($body_pos === false){
+	$body_pos = strpos($s_web,'<BODY');
+}
+if($body_pos !== false){
+	$body_pos = strpos($s_web,'>',$body_pos)+1;
+	$s_web = substr($s_web,0,$body_pos).file_get_contents('menu.html').substr($s_web,$body_pos,strlen($s_web));
+}
 
 
 //Y se lo enseñamos al mundo:

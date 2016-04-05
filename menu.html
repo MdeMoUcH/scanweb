@@ -1,0 +1,17 @@
+<div id='scanweb_menu'>
+	<input type='text' id='buscar' />
+	<input type='button' value='wkp' onclick='buscar("/scanweb/index.php?web=https://es.wikipedia.org/w/index.php%3Fsearch=");'/> 
+	<input type='button' value='goo' onclick='buscar("/scanweb/index.php?web=http://google.com/search%3F%26ie=utf-8%26oe=utf-8%26q=");'/> 
+	<script type="text/javascript">
+		function buscar(url){
+			var texto = document.getElementById("buscar").value;
+			while(texto.indexOf(" ") != -1){
+				texto = texto.replace(" ","%2B");
+			}
+			window.open(url+texto);
+		}
+	</script>
+</div>
+
+
+
