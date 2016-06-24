@@ -47,8 +47,9 @@ $a_exp = array('|href\="http|','|href\="www\.|','|href\="/|','|href\="#|');
 $a_sus = array('href="'.$url_redirect.'http','href="'.$url_redirect.'www.','href="'.$s_url_base.'/','href="'.$url_redirect.$s_url.'#');
 $s_web = preg_replace($a_exp,$a_sus,$s_web);
 
-//Añadimos nuestra propia hoja de estilos:
-$s_web = str_replace(array('</head>','</HEAD>'),'<link rel="stylesheet" href="'.$urlbase.'nostyle.css" media="screen" /></head>',$s_web);
+//Añadimos nuestra propia hoja de estilos con un color de fondo entre unos cuentos:
+$a_colores = array('LightBlue', 'LightGrey', 'Tan', 'Moccasin');
+$s_web = str_replace(array('</head>','</HEAD>'),str_replace('{{color}}',$a_colores[rand(0,(count($a_colores)-1))],file_get_contents('nostyle.html')),$s_web);
 
 //Y nuestro propio menú:
 $body_pos = strpos($s_web,'<body');
