@@ -6,7 +6,7 @@
  * mdemouch@gmail.com
  **************************************/
 
-$urlbase = 'http://localhost/scanweb/';
+$urlbase = 'http://'.$_SERVER['SERVER_NAME'].'/scanweb/';
 $url_redirect = $urlbase.'index.php?web=';
 
 if(@$_GET['web'] != ''){
