@@ -1,12 +1,18 @@
 <div id='scanweb_menu'>
 	<input type='text' id='buscar' />
-	<input type='button' value='wkp' onclick='buscar("/scanweb/index.php?web=https://es.wikipedia.org/w/index.php%3Fsearch=");'/> 
-	<input type='button' value='goo' onclick='buscar("/scanweb/index.php?web=http://google.com/search%3F%26ie=utf-8%26oe=utf-8%26q=");'/> 
+	<input type='button' value='wkp' onclick='buscar("/scanweb/index.php?web=https://es.wikipedia.org/w/index.php%3Fsearch=");'/>
+	<input type='button' value='goo' onclick='buscar("/scanweb/index.php?web=http://google.com/search%3F%26ie=utf-8%26oe=utf-8%26q=");'/>
+	<input type='button' value='oxf' onclick='buscar("/scanweb/index.php?web=http://www.oxforddictionaries.com/es/traducir/ingles-espanol/");'/>
+	<input type='button' value='eztv' onclick='buscar("/scanweb/index.php?web=https://eztv.ag/search/");'/> 
 	<script type="text/javascript">
 		function buscar(url){
 			var texto = document.getElementById("buscar").value;
+			var replace = "%2B";
+			if(url.indexOf("eztv") != -1){
+				replace = "-";
+			}
 			while(texto.indexOf(" ") != -1){
-				texto = texto.replace(" ","%2B");
+				texto = texto.replace(" ",replace);
 			}
 			window.open(url+texto);
 		}

@@ -42,6 +42,10 @@ $s_web = str_replace('iframe','noframe',$s_web);
 $s_web = str_replace('object','nobject',$s_web);
 $s_web = str_replace('embed','nobject',$s_web);
 
+//Quitamos los scripts:
+$s_web = str_replace('<script','<noscript',$s_web);
+$s_web = str_replace('/script>','/noscript>',$s_web);
+
 //Redirigimos los enlaces:
 $a_exp = array('|href\="http|','|href\="www\.|','|href\="/|','|href\="#|');
 $a_sus = array('href="'.$url_redirect.'http','href="'.$url_redirect.'www.','href="'.$s_url_base.'/','href="'.$url_redirect.$s_url.'#');
