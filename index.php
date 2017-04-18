@@ -36,6 +36,8 @@ $s_web = str_replace('<style','<!--<stylah',$s_web);
 $s_web = str_replace('</style>','</stylah>-->',$s_web);
 $s_web = str_replace('style=','stylah=',$s_web);
 $s_web = str_replace('favicon','iconfav',$s_web);
+$s_web = str_replace('<link','<zelda',$s_web);
+$s_web = str_replace('/link>','/zelda>',$s_web);
 
 //Quitamos los iframes y objetos:
 $s_web = str_replace('iframe','noframe',$s_web);
